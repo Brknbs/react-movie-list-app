@@ -1,0 +1,56 @@
+@import '../../scss/variables';
+
+.hero {
+  //padding: 3rem 0;
+  background-color: $color-white;
+  height: 80vh;
+
+  &__container {
+    padding: 0 5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(90deg, rgba($color-tertiary, 0.3), rgba($color-tertiary, 0.1));
+    //clip-path: polygon(0 0, 55% 0, 45% 100%, 0% 100%), polygon(100% 0, 55% 0, 45% 100%, 100% 100%);
+
+    &--image {
+      //width: 100%;
+
+      img {
+        width: 100%;
+        z-index: 20;
+        object-fit: contain;
+      }
+    }
+
+    &--text {
+      width: 100%;
+      height: 100%;
+
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-input {
+          width: 35rem;
+          padding: 1rem;
+          font-size: 2rem;
+          border-radius: 10px;
+          border: 1px solid rgba(0, 0, 0, 0.3);
+          //display: block;
+
+          &:focus {
+            outline: none;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+
+    .row {
+      align-items: center;
+    }
+  }
+}

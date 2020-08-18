@@ -1,0 +1,13 @@
+@import './variables';
+
+.button-primary {
+  padding: 0.5rem 2rem;
+  background-color: rgba($color-tertiary, 0.7);
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  text-transform: uppercase;
+  height: 5.4rem;
+  box-shadow: 5px 1px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}

@@ -1,0 +1,24 @@
+@import '../../scss/variables';
+
+.header {
+  padding: 2rem 0;
+  background-color: $color-primary;
+  //background-color: rgba($color-tertiary, 0.4);
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+
+    &--icon {
+      padding-right: 1rem;
+      font-size: 4rem;
+      color: $color-tertiary;
+    }
+
+    &--text {
+      font-size: 3rem;
+    }
+  }
+}

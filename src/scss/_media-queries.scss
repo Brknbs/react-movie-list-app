@@ -1,0 +1,20 @@
+@import '../components/Hero/hero.scss';
+
+@media screen and (max-width: 480px) {
+  .heading-primary {
+    font-size: 3rem;
+  }
+
+  .paragraph-primary {
+    font-size: 1.5rem;
+  }
+
+  .button-primary {
+    height: 4rem;
+    font-size: 1.5rem;
+  }
+
+  .hero__container--text-wrapper-input {
+    font-size: 1.3rem !important;
+  }
+}
