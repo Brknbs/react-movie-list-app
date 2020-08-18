@@ -1,0 +1,9 @@
+.movie-list {
+  display: flex;
+  justify-content: center;
+  &__container {
+    padding: 2rem 5rem;
+    
+  }
+
+}

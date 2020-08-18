@@ -5,8 +5,10 @@ import MovieCard from '../MovieCard/movie-card';
 const MovieList = () => {
   return (
     <div className="movie-list">
-      <h2 className="heading-secondary">Movie List</h2>
-      <MovieCard />
+      <div className="movie-list__container">
+        <h2 className="heading-secondary mb-5">Movie List</h2>
+        <MovieCard />
+      </div>
     </div>
   )
 }

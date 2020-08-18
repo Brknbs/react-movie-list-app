@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './hero.scss';
 import MovieImage from '../../assets/images/movie-image2.svg';
+import { searchMovie } from '../../redux/actions/moviesActions';
 
 const Hero = () => {
+  const dispatch = useDispatch();
+
+  const [searchedMovie, setSearchedMovie] = useState('');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(searchMovie(searchedMovie));
+  } 
+
+  const handleChange = e => {
+    setSearchedMovie(e.target.value);
+  }
+
   return (
     <div className="hero">
       <div className="hero__container">
@@ -11,8 +26,8 @@ const Hero = () => {
             <div className="hero__container--text-wrapper">
               <h1 className="heading-primary mb-4">Searching for a movie?</h1>
               <h2 className="paragraph-primary mb-5">Find any movie you want to get information about.</h2>
-              <form>
-                <input type="text" placeholder="Search movies" className="hero__container--text-wrapper-input"/>
+              <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="Search movies" className="hero__container--text-wrapper-input" onChange={handleChange}/>
                 <button className="button-primary ml-4">Search</button>
               </form>
             </div>

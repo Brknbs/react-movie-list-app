@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './movie-card.scss';
+import { useSelector } from 'react-redux';
 
-const MovieCard = ({}) => {
+const MovieCard = () => {
+  const mapState = ({ movies }) => {
+    return {
+      searchedMovie: movies.searchedMovie,
+      error: movies.error
+    };
+  };
+
+  const { searchedMovie, error } = useSelector(mapState);
+  JSON.parse(JSON.stringify(searchedMovie))
+
   return (
     <div className="movie-card">
-      <div class="row no-gutters">
-        <div className="col-md-4">
-          <img src="../../assets/images/movie-image.svg" class="card-img" alt="..." />
+      <div className="row no-gutters">
+        <div className="col-md-4 movie-card__image px-3">
+          <img src={searchedMovie ? searchedMovie.Poster : ''} className="card-img" alt="..." />
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Movie Title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <div className="col-md-8">
+          <div className="card-body">
+            <h2 className="card-title heading-secondary">{searchedMovie ? searchedMovie.Title : null }</h2>
+            <p className="card-text paragraph-secondary">{searchedMovie ? searchedMovie.Plot : null}</p>
           </div>
         </div>
       </div>
