@@ -13,7 +13,7 @@ const moviesReducer = (state = initialState, action) => {
     case constants.SEARCH_MOVIES_SUCCESS:
       return {...state, searchedMovies: action.payload, error: ''};
     case constants.SEARCH_MOVIES_ERROR:
-      return {...state, error: action.payload};
+      return {...state, error: action.payload, searchedMovies: null};
     case constants.SEARCH_ONE_MOVIE_SUCCESS:
       return {...state, detailedMovie: action.payload, error: ''};
     case constants.SEARCH_ONE_MOVIE_ERROR:

@@ -58,6 +58,14 @@
   html {
     font-size: 9px;
   }
+
+  
+}
+
+@media screen and (max-width: 576px) {
+  .movie-card-details__container--text {
+    padding-top: 3rem ;
+  }
 }
 
 @media screen and (min-width: 480px) and (max-width: 1200px) {

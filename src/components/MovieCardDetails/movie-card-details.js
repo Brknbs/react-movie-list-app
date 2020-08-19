@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import './movie-card-details.scss';
-import { searchMovieByID } from '../../redux/actions/moviesActions';
 import { Link } from 'react-router-dom';
 
-const MovieCardDetails = ({ movieID, detailedMovie }) => {
+const MovieCardDetails = ({ detailedMovie }) => {
 
   return (
     <div className="movie-card-details">

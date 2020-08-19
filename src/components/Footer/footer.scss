@@ -1,0 +1,42 @@
+@import '../../scss/variables';
+
+.footer {
+  background-color: $color-primary;
+  color: $color-white;
+
+  &__text {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__socials {
+    text-align: center;
+
+    a {
+      color: inherit;
+    }
+
+    i {
+      font-size: 3rem;
+
+      &:active, &:visited {
+        color: inherit;
+      }
+
+      &:hover {
+        color: $color-tertiary;
+      }
+    }
+  }
+
+  .row {
+    padding: 2rem 4rem;
+    margin: 0;
+  }
+}

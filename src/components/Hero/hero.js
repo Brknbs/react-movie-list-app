@@ -1,23 +1,8 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
 import './hero.scss';
 import MovieImage from '../../assets/images/movie-image2.svg';
-import { searchMoviesByName } from '../../redux/actions/moviesActions';
 
 const Hero = () => {
-  const dispatch = useDispatch();
-
-  const [searchedMovie, setSearchedMovie] = useState('');
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    dispatch(searchMoviesByName(searchedMovie));
-    //dispatch(getAllMovies());
-  } 
-
-  const handleChange = e => {
-    setSearchedMovie(e.target.value);
-  }
 
   return (
     <div className="hero">

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import './movie-list.scss';
 import MovieCard from '../MovieCard/movie-card';
 import { searchMoviesByName } from '../../redux/actions/moviesActions';
-import _ from 'lodash';
 
 const MovieList = () => {
   const dispatch = useDispatch();
@@ -49,7 +48,7 @@ const MovieList = () => {
           />
           <button className="button-primary ml-4">Search</button>
         </form>
-        {!searchedMovies && <p className="paragraph-primary results-placeholder">Your result will be shown here.</p>}
+         {error && <p className="paragraph-primary results-placeholder text-danger">{error}</p>}
         {searchedMovies && 
           searchedMovies.map(movie => (
             <MovieCard movie={movie} />

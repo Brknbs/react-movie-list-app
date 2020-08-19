@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './movie-card.scss';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const MovieCard = ({movie, history}) => {
