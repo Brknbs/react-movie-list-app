@@ -28,7 +28,7 @@ const MovieCardDetails = ({ movieID, detailedMovie }) => {
             <p className="paragraph-primary"><span className="font-weight-bold">IMDB Rating: </span>{detailedMovie.imdbRating}</p>
             <p className="paragraph-primary"><span className="font-weight-bold">Metascore: </span>{detailedMovie.Metascore}</p>
             <p className="paragraph-primary"><span className="font-weight-bold">Box Office </span>{detailedMovie.BoxOffice}</p>
-            <Link to="/"><button className="button-primary">Back to homepage</button></Link>
+            <Link to="/#movie-list"><button className="button-primary">Back to homepage</button></Link>
           </div>
         </div>
       </div>

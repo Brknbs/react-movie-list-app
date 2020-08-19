@@ -1,5 +1,6 @@
 import * as constants from '../constants';
 import axios from 'axios';
+import _ from 'lodash';
 
 export const searchMoviesByName = title => {
   return dispatch => {
@@ -10,7 +11,8 @@ export const searchMoviesByName = title => {
         if (movies.data.Error) {
           throw movies.data.Error;
         } else {
-          dispatch(searchMoviesSuccess(movies.data.Search));
+          const sortedMovies = sortByYear(movies.data.Search);
+          dispatch(searchMoviesSuccess(sortedMovies));
         }
       })
       .catch(error => dispatch(searchMoviesError(error)));
@@ -36,6 +38,12 @@ export const searchMovieByID = id => {
 export const resetDetailedMovie = () => {
   return {
     type: constants.RESET_DETAILED_MOVIE
+  }
+}
+
+export const toggleLoading = () => {
+  return {
+    type: constants.TOGGLE_LOADING
   }
 }
 
@@ -74,3 +82,7 @@ const searchOneMovieError = error => {
     payload: error
   }
 }
+
+const sortByYear = movies => {
+ return  _.orderBy(movies, ['Year'], ['asc']); 
+};

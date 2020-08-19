@@ -4,6 +4,8 @@ const initialState = {
   searchedMovies: null,
   detailedMovie: null,
   error: '',
+  loading: false,
+  sortedMovie: null
 };
 
 const moviesReducer = (state = initialState, action) => {
@@ -18,6 +20,8 @@ const moviesReducer = (state = initialState, action) => {
       return {...state, error: action.payload};
     case constants.RESET_DETAILED_MOVIE:
       return {...state, detailedMovie: null};
+    case constants.TOGGLE_LOADING:
+      return {...state, loading: !state.loading};
     default:
       return state;
   }

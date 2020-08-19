@@ -5,6 +5,10 @@
     font-size: 3rem;
   }
 
+  .heading-secondary {
+    font-size: 2.5rem;
+  }
+
   .paragraph-primary {
     font-size: 1.5rem;
   }
@@ -17,4 +21,65 @@
   .hero__container--text-wrapper-input {
     font-size: 1.3rem !important;
   }
+
+  .movie-list__container {
+    padding: 1rem 0rem !important;
+
+    &--form {
+      text-align: center;
+      padding: 2rem 5rem !important;
+
+      &-input {
+        width: 25rem !important;
+      }
+
+      button {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  .movie-card {
+    padding: 0 1rem !important;
+  }
+
+  .card-body {
+    text-align: center;
+  }
+
+  .hero__container--text {
+    text-align: center;
+  }
+
+  .hero__container--image {
+    padding-top: 3rem;
+  }
+
+  html {
+    font-size: 9px;
+  }
 }
+
+@media screen and (min-width: 480px) and (max-width: 1200px) {
+  .heading-secondary {
+    font-size: 3rem;
+  }
+
+  html {
+    font-size: 7px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+

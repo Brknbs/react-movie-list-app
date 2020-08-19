@@ -1,10 +1,25 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './movie-list.scss';
 import MovieCard from '../MovieCard/movie-card';
-import MovieCardDetails from '../MovieCardDetails/movie-card-details';
+import { searchMoviesByName } from '../../redux/actions/moviesActions';
+import _ from 'lodash';
 
 const MovieList = () => {
+  const dispatch = useDispatch();
+
+  const [searchedMovie, setSearchedMovie] = useState('');
+
+  const handleSubmit = async  e => {
+    e.preventDefault();
+    dispatch(searchMoviesByName(searchedMovie));
+    //dispatch(getAllMovies());
+  } 
+
+  const handleChange = e => {
+    setSearchedMovie(e.target.value);
+  }
+
   const mapState = ({ movies }) => {
     return {
       searchedMovies: movies.searchedMovies,
@@ -14,10 +29,27 @@ const MovieList = () => {
 
   const { searchedMovies, error } = useSelector(mapState);
 
+  useEffect(() => {
+    if (!searchedMovies) {
+      setSearchedMovie('pokemon');
+      dispatch(searchMoviesByName('pokemon'));
+    }
+  }, [])
+
   return (
-    <div className="movie-list">
+    <div className="movie-list" id="movie-list">
       <div className="movie-list__container">
-        <h2 className="heading-secondary mb-5">Movie List</h2>
+        <h2 className="heading-secondary mb-5 mt-3">Search Here</h2>
+        <form onSubmit={handleSubmit} className="movie-list__container--form">
+          <input type="text" 
+            placeholder="Search movies" 
+            className="movie-list__container--form-input" 
+            onChange={handleChange}
+            value={searchedMovie}
+          />
+          <button className="button-primary ml-4">Search</button>
+        </form>
+        {!searchedMovies && <p className="paragraph-primary results-placeholder">Your result will be shown here.</p>}
         {searchedMovies && 
           searchedMovies.map(movie => (
             <MovieCard movie={movie} />
