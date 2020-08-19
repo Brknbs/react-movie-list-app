@@ -32,8 +32,9 @@ const MovieList = () => {
     if (!searchedMovies) {
       setSearchedMovie('pokemon');
       dispatch(searchMoviesByName('pokemon'));
+      
     }
-  }, [])
+  }, []) // eslint-disable-next-line react-hooks/exhaustive-deps
 
   return (
     <div className="movie-list" id="movie-list">

@@ -9,7 +9,7 @@ const MovieCardDetails = ({ detailedMovie }) => {
       <div className="movie-card-details__container">
         <div className="row">
           <div className="col-12 col-md-6 col-xl-4 movie-card-details__container--image">
-            <img src={detailedMovie.Poster} />
+            <img src={detailedMovie.Poster} alt="movie-poster" />
           </div>
           <div className="col-12 col-md-6 col-xl-8 movie-card-details__container--text">
             <h2 className="heading-secondary">{detailedMovie.Title}</h2>

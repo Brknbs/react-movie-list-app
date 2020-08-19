@@ -8,12 +8,6 @@ import Spinner from '../../components/Spinner/spinner';
 const MovieDetailsPage = ({ match }) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(toggleLoading());
-    dispatch(searchMovieByID(movieID));
-    dispatch(toggleLoading());
-  }, []);
-
   const mapState = ({ movies }) => {
     return {
       detailedMovie: movies.detailedMovie,
@@ -25,9 +19,17 @@ const MovieDetailsPage = ({ match }) => {
   const { detailedMovie, error, loading } = useSelector(mapState);
   const movieID = match.params.id;
 
+  useEffect(() => {
+    dispatch(toggleLoading());
+    dispatch(searchMovieByID(movieID));
+    dispatch(toggleLoading());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); 
+
   return (
     <div className="movie-details-page">
       {loading && <Spinner />}
+      {error && <p className="text-danger">{error}</p>}
       {detailedMovie && <MovieCardDetails movieID={match.params.id} detailedMovie={detailedMovie}/>}
     </div>
   )
