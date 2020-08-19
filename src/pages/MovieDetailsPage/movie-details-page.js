@@ -23,7 +23,6 @@ const MovieDetailsPage = ({ match }) => {
     dispatch(toggleLoading());
     dispatch(searchMovieByID(movieID));
     dispatch(toggleLoading());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); 
 
   return (

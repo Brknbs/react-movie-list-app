@@ -28,13 +28,12 @@ const MovieList = () => {
 
   const { searchedMovies, error } = useSelector(mapState);
 
-  useEffect(() => {
+  useEffect(() => { 
     if (!searchedMovies) {
-      setSearchedMovie('pokemon');
-      dispatch(searchMoviesByName('pokemon'));
-      
+      setSearchedMovie('pokemon'); 
+      dispatch(searchMoviesByName('pokemon')); 
     }
-  }, []) // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])  
 
   return (
     <div className="movie-list" id="movie-list">

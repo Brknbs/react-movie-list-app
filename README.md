@@ -2,7 +2,10 @@
 
 ## Used Technologies
 
-HTML, CSS(SCSS), React(Hooks, Redux), Bootstrap
+- HTML
+- CSS(SCSS)
+- React(Hooks, Redux)
+- Bootstrap
 
 ## Project Features
 
@@ -24,4 +27,10 @@ HTML, CSS(SCSS), React(Hooks, Redux), Bootstrap
 ### `yarn start` or `npm start`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Screenshots
+
+![hero-section](./src/assets/images/ss/ss1.jpg)
+![hero-section](./src/assets/images/ss/ss2.jpg)
+![hero-section](./src/assets/images/ss/ss3.jpg)
 
