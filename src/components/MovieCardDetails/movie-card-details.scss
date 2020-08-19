@@ -1,0 +1,21 @@
+.movie-card-details {
+  &__container {
+    &--image {
+      text-align: center;
+      img {
+        width: 80%;
+        object-fit: contain;
+      }
+    }
+
+    &--text {
+      .seperator {
+        height: 10px;
+        width: 100%;
+        color: black;
+      }
+    }
+
+    
+  }
+}

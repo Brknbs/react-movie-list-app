@@ -1,36 +1,76 @@
 import * as constants from '../constants';
 import axios from 'axios';
 
-export const searchMovie = title => {
+export const searchMoviesByName = title => {
   return dispatch => {
-    return fetchMovie(title)
+    return fetchMoviesByName(title)
+      .then(movies => {
+        console.log(movies)
+
+        if (movies.data.Error) {
+          throw movies.data.Error;
+        } else {
+          dispatch(searchMoviesSuccess(movies.data.Search));
+        }
+      })
+      .catch(error => dispatch(searchMoviesError(error)));
+  };
+};
+
+export const searchMovieByID = id => {
+  return dispatch => {
+    return fetchMovieByID(id)
       .then(movie => {
-        console.log(movie.data.Title)
+        //console.log(movie.data.Title)
 
         if (movie.data.Error) {
           throw movie.data.Error;
         } else {
-          dispatch(searchMovieSuccess(movie.data));
+          dispatch(searchOneMovieSuccess(movie.data));
         }
       })
-      .catch(error => dispatch(searchMovieError(error)));
+      .catch(error => dispatch(searchOneMovieError(error)));
   };
 };
 
-const fetchMovie = title => {
-  return axios.get(`http://www.omdbapi.com/?t=${title}&apikey=6421e299`);
+export const resetDetailedMovie = () => {
+  return {
+    type: constants.RESET_DETAILED_MOVIE
+  }
+}
+
+const fetchMoviesByName = title => {
+  return axios.get(`http://www.omdbapi.com/?s=${title}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`);
 };
 
-const searchMovieSuccess = movie => {
+const fetchMovieByID = id => {
+  return axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`);
+};
+
+const searchMoviesSuccess = movies => {
   return {
-    type: constants.SEARCH_MOVIE_SUCCESS,
+    type: constants.SEARCH_MOVIES_SUCCESS,
+    payload: movies
+  }
+}
+
+const searchMoviesError = error => {
+  return {
+    type: constants.SEARCH_MOVIES_ERROR,
+    payload: error
+  }
+}
+
+const searchOneMovieSuccess = movie => {
+  return {
+    type: constants.SEARCH_ONE_MOVIE_SUCCESS,
     payload: movie
   }
 }
 
-const searchMovieError = error => {
+const searchOneMovieError = error => {
   return {
-    type: constants.SEARCH_MOVIE_ERROR,
+    type: constants.SEARCH_ONE_MOVIE_ERROR,
     payload: error
   }
 }

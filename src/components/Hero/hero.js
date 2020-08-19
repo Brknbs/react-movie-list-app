@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './hero.scss';
 import MovieImage from '../../assets/images/movie-image2.svg';
-import { searchMovie } from '../../redux/actions/moviesActions';
+import { searchMoviesByName, getAllMovies } from '../../redux/actions/moviesActions';
 
 const Hero = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,8 @@ const Hero = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(searchMovie(searchedMovie));
+    dispatch(searchMoviesByName(searchedMovie));
+    //dispatch(getAllMovies());
   } 
 
   const handleChange = e => {
